@@ -10,6 +10,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Proxmox',
+      link: {type: 'generated-index'},
       collapsible: true,
       collapsed: false,
       items: [
@@ -20,6 +21,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Linux',
+      link: {type: 'generated-index'},
       collapsible: true,
       collapsed: false,
       items: [
@@ -30,6 +32,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Oracle',
+      link: {type: 'generated-index'},
       collapsible: true,
       collapsed: false,
       items: [
@@ -40,6 +43,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Backup',
+      link: {type: 'generated-index'},
       collapsible: true,
       collapsed: false,
       items: [

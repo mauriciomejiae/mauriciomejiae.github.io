@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // Configuración para mauriciomejiae.github.io
 const config: Config = {
-  title: 'Manuales Técnicos',
+  title: 'Mauricio Labs',
   tagline: 'Documentación técnica de infraestructura Linux, Proxmox, Oracle y Backup',
   favicon: 'img/favicon.ico',
 
@@ -52,9 +52,9 @@ const config: Config = {
       {name: 'keywords', content: 'manuales técnicos, RHEL, Proxmox, Oracle, Data Protector, Linux, DevOps'},
     ],
     navbar: {
-      title: 'Manuales Técnicos',
+      title: 'Mauricio Labs',
       logo: {
-        alt: 'Logo Manuales Técnicos',
+        alt: 'Logo Mauricio Labs',
         src: 'img/logo.svg',
       },
       items: [
@@ -66,22 +66,22 @@ const config: Config = {
         },
         {
           label: 'Proxmox',
-          to: '/docs/category/proxmox',
+          to: '/docs/proxmox/post-install-proxmox9',
           position: 'left',
         },
         {
           label: 'Linux',
-          to: '/docs/category/linux',
+          to: '/docs/linux/disclaimer-login-linux',
           position: 'left',
         },
         {
           label: 'Oracle',
-          to: '/docs/category/oracle',
+          to: '/docs/oracle/instalacion-oracle19c',
           position: 'left',
         },
         {
           label: 'Backup',
-          to: '/docs/category/backup',
+          to: '/docs/backup/data-protector-244-rhel85',
           position: 'left',
         },
         {
@@ -97,10 +97,10 @@ const config: Config = {
         {
           title: 'Categorías',
           items: [
-            {label: 'Proxmox', to: '/docs/category/proxmox'},
-            {label: 'Linux', to: '/docs/category/linux'},
-            {label: 'Oracle', to: '/docs/category/oracle'},
-            {label: 'Backup', to: '/docs/category/backup'},
+            {label: 'Proxmox', to: '/docs/proxmox/post-install-proxmox9'},
+            {label: 'Linux', to: '/docs/linux/disclaimer-login-linux'},
+            {label: 'Oracle', to: '/docs/oracle/instalacion-oracle19c'},
+            {label: 'Backup', to: '/docs/backup/data-protector-244-rhel85'},
           ],
         },
         {
@@ -112,7 +112,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `© ${new Date().getFullYear()} Manuales Técnicos. Construido con Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} Mauricio Labs. Construido con Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,

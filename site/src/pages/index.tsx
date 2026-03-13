@@ -21,8 +21,8 @@ function HeroSection() {
           <Link className="btn-primary" to="/docs/intro">
             📖 Ver documentación
           </Link>
-          <Link className="btn-secondary" to="/docs/category/proxmox">
-            Explorar categorías →
+          <Link className="btn-secondary" to="/docs/proxmox/post-install-proxmox9">
+            Explorar manuales →
           </Link>
         </div>
       </div>
@@ -59,7 +59,7 @@ function CategoryCards() {
       title: 'Proxmox',
       desc: 'Virtualización con Proxmox VE 9. Instalación, post-install, gestión de discos y repositorios sin suscripción.',
       count: 2,
-      link: '/docs/category/proxmox',
+      link: '/docs/proxmox/post-install-proxmox9',
     },
     {
       id: 'linux',
@@ -67,7 +67,7 @@ function CategoryCards() {
       title: 'Linux',
       desc: 'Configuración y hardening de RHEL 8/9. Banner de login, VTL con QUADStor, conexión iSCSI.',
       count: 2,
-      link: '/docs/category/linux',
+      link: '/docs/linux/disclaimer-login-linux',
     },
     {
       id: 'oracle',
@@ -75,7 +75,7 @@ function CategoryCards() {
       title: 'Oracle',
       desc: 'Instalación y recuperación de Oracle Database 19c. DBCA, RMAN, ARCHIVELOG y Point In Time Recovery.',
       count: 2,
-      link: '/docs/category/oracle',
+      link: '/docs/oracle/instalacion-oracle19c',
     },
     {
       id: 'backup',
@@ -83,7 +83,7 @@ function CategoryCards() {
       title: 'Backup',
       desc: 'OpenText Data Protector 24.4. Instalación del Cell Manager, configuración de firewall y agentes.',
       count: 1,
-      link: '/docs/category/backup',
+      link: '/docs/backup/data-protector-244-rhel85',
     },
   ];
 
