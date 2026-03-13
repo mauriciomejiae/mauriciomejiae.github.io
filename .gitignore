@@ -1,0 +1,27 @@
+# Dependencias
+site/node_modules/
+node_modules/
+
+# Build output
+site/build/
+site/.docusaurus/
+
+# Archivos originales Word (no se publican)
+**/*.docx
+
+# Script de migración (no necesario en el repo)
+migrate_manuals.py
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
