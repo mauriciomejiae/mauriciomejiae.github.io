@@ -3,15 +3,17 @@ sidebar_position: 1
 title: Instalación Cell Manager Data Protector 24.4
 description: Guía completa de instalación y configuración del Cell Manager de OpenText Data Protector 24.4 en RHEL 8.5, incluyendo firewall, usuario hpdp, límites de archivos y validaciones finales.
 tags: [backup, data-protector, rhel, cell-manager, opentext]
+toc_min_heading_level: 2
+toc_max_heading_level: 2
 ---
 
 # Instalación Cell Manager Data Protector 24.4 en RHEL 8.5
 
 **Manual – Instalación Cell Manager Data Protector 24.4 en RHEL 8.5**
 
-## 🔹 Paso 1: Configurar IP estática y desactivar IPv6 (cambios permanentes)
+## Paso 1: Configurar IP estática y desactivar IPv6 (cambios permanentes)
 
-### Identificar la interfaz de red activa
+**Identificar la interfaz de red activa**
 
 ```bash
 ip -o link show | awk -F': ' '{print \$2}' | grep -v lo
@@ -21,14 +23,17 @@ Este comando lista las interfaces de red disponibles, excluyendo la loopback (lo
 
 **Ejemplo de salida:**
 
+```text
 enp6s18
+```
 
-### Configurar IP estática, gateway, DNS y desactivar IPv6
+**Configurar IP estática, gateway, DNS y desactivar IPv6**
 
 ```bash
-sudo nmcli con mod enp6s18 ipv4.addresses 192.168.2.6/24 \\
+sudo nmcli con mod ```text
+enp6s18
+``` ipv4.addresses 192.168.2.6/24 \\
 
-```
 ipv4.gateway 192.168.2.1 \\
 
 ipv4.dns "8.8.8.8 8.8.4.4" \\
@@ -39,29 +44,37 @@ ipv6.method ignore
 
 Este comando asigna una IP estática, desactiva DHCP e IPv6, y configura DNS y gateway.
 
-### Activar la conexión para aplicar los cambios
+**Activar la conexión para aplicar los cambios**
 
 ```bash
-sudo nmcli con up enp6s18
+sudo nmcli con up ```text
+enp6s18
+```
 ```
 
-Reinicia la interfaz de red enp6s18 para aplicar la nueva configuración.
+Reinicia la interfaz de red ```text
+enp6s18
+``` para aplicar la nueva configuración.
 
-### Verificar configuración de IP
+**Verificar configuración de IP**
 
 ```bash
-ip a show enp6s18
+ip a show ```text
+enp6s18
+```
 ```
 
 ```bash
-nmcli dev show enp6s18 | grep IP
+nmcli dev show ```text
+enp6s18
+``` | grep IP
 ```
 
 Asegura que la IP 192.168.2.6 esté activa y que no haya direcciones IPv6.
 
-## 🔹 Paso 2: Configurar nombre de máquina y actualizar /etc/hosts
+## Paso 2: Configurar nombre de máquina y actualizar /etc/hosts
 
-### Establecer el nombre de host permanente
+**Establecer el nombre de host permanente**
 
 ```bash
 sudo hostnamectl set-hostname cellmanager.homelab.local
@@ -69,7 +82,7 @@ sudo hostnamectl set-hostname cellmanager.homelab.local
 
 Esto configura el hostname del sistema de forma persistente en todos los reinicios.
 
-### Agregar la IP, FQDN y hostname corto al archivo /etc/hosts
+**Agregar la IP, FQDN y hostname corto al archivo /etc/hosts**
 
 ```bash
 echo "192.168.2.6 cellmanager.homelab.local cellmanager" | sudo tee -a /etc/hosts
@@ -77,7 +90,7 @@ echo "192.168.2.6 cellmanager.homelab.local cellmanager" | sudo tee -a /etc/host
 
 Esto permite la resolución local del nombre de host y su FQDN hacia la IP estática asignada.
 
-### Verificar que el hostname se haya aplicado correctamente
+**Verificar que el hostname se haya aplicado correctamente**
 
 ```bash
 hostname -f
@@ -87,7 +100,7 @@ hostname -f
 
 cellmanager.homelab.local
 
-### Verificar que la entrada en /etc/hosts fue agregada correctamente
+**Verificar que la entrada en /etc/hosts fue agregada correctamente**
 
 ```bash
 grep cellmanager /etc/hosts
@@ -95,13 +108,15 @@ grep cellmanager /etc/hosts
 
 **Resultado esperado:**
 
+```text
 192.168.2.6 cellmanager.homelab.local cellmanager
+```
 
-## 🔹 Paso 3: Montar la ISO y configurar repositorios locales en RHEL 8.5
+## Paso 3: Montar la ISO y configurar repositorios locales en RHEL 8.5
 
 **<span class="mark">OPCION 1:</span>**
 
-### ISO montada como CD/DVD virtual en Proxmox
+**ISO montada como CD/DVD virtual en Proxmox**
 
 Si, en la VM de RHEL, montaste la ISO en la unidad de CD/DVD virtual:
 
@@ -127,19 +142,19 @@ ls -ltra /mnt/iso
 
 Esto es **temporal**: cuando desmontes la ISO en Proxmox o reinicies, /mnt/iso estará vacío hasta que la vuelvas a montar.
 
-### Confirmar que la ISO está visible
+**Confirmar que la ISO está visible**
 
 ```bash
-df -h \# Ver si /mnt/iso está montado
+df -h # Ver si /mnt/iso está montado
 ```
 
 ```bash
-lsblk \# Ver discos y particiones
+lsblk # Ver discos y particiones
 ```
 
 **<span class="mark">OPCION 2:</span>**
 
-### Crear el punto de montaje para la ISO
+**Crear el punto de montaje para la ISO**
 
 ```bash
 sudo mkdir -p /mnt/iso
@@ -147,7 +162,7 @@ sudo mkdir -p /mnt/iso
 
 Este comando crea el directorio donde se montará la imagen ISO.
 
-### Montar la ISO desde /tmp
+**Montar la ISO desde /tmp**
 
 ```bash
 sudo mount -o loop /tmp/rhel-8.5-x86_64-dvd.iso /mnt/iso
@@ -155,49 +170,39 @@ sudo mount -o loop /tmp/rhel-8.5-x86_64-dvd.iso /mnt/iso
 
 Asegúrate de que el nombre del archivo coincida exactamente. Este comando monta el contenido de la ISO en /mnt/iso.
 
-### Verificar el contenido montado
+**Verificar el contenido montado**
 
+```bash
 ls /mnt/iso
+```
 
 Debes ver los directorios BaseOS/ y AppStream/.
 
-### Configurar repositorio local para BaseOS
+**Configurar repositorio local para BaseOS**
 
 ```bash
 cat << EOF | sudo tee /etc/yum.repos.d/BaseOS.repo
+[BaseOS]
+name=BaseOS
+baseurl=file:///mnt/iso/BaseOS
+enabled=1
+gpgcheck=0
+EOF
 ```
 
-[BaseOS]
-
-name=BaseOS
-
-baseurl=file:///mnt/iso/BaseOS
-
-enabled=1
-
-gpgcheck=0
-
-EOF
-
-### Configurar repositorio local para AppStream
+**Configurar repositorio local para AppStream**
 
 ```bash
 cat << EOF | sudo tee /etc/yum.repos.d/AppStream.repo
+[AppStream]
+name=AppStream
+baseurl=file:///mnt/iso/AppStream
+enabled=1
+gpgcheck=0
+EOF
 ```
 
-[AppStream]
-
-name=AppStream
-
-baseurl=file:///mnt/iso/AppStream
-
-enabled=1
-
-gpgcheck=0
-
-EOF
-
-### Deshabilitar plugins de DNF (opcional)
+**Deshabilitar plugins de DNF (opcional)**
 
 Para evitar interferencias durante la instalación desde fuentes locales (como ISO montada), se puede deshabilitar el uso de plugins en dnf.
 
@@ -215,23 +220,19 @@ cat /etc/dnf/dnf.conf
 
 **Salida esperada:**
 
+```text
 [main]
-
 gpgcheck=1
-
 installonly_limit=3
-
 clean_requirements_on_remove=True
-
 best=True
-
 skip_if_unavailable=False
-
 plugins=0
+```
 
 > 📝 **Nota:** Esto es útil si estás usando una fuente local (como una ISO montada) y deseas evitar que DNF intente usar repositorios externos o plugins automáticos que modifiquen el comportamiento.
 
-### Limpiar y reconstruir la caché de repositorios
+**Limpiar y reconstruir la caché de repositorios**
 
 ```bash
 sudo dnf clean all
@@ -241,9 +242,9 @@ sudo dnf clean all
 sudo dnf makecache
 ```
 
-## 🔹 Paso 4: Instalación de utilidades requeridas
+## Paso 4: Instalación de utilidades requeridas
 
-### Utilidades requeridas del sistema operativo
+**Utilidades requeridas del sistema operativo**
 
 Instalar los siguientes paquetes esenciales para administración, compilación y diagnóstico del sistema:
 
@@ -251,7 +252,7 @@ Instalar los siguientes paquetes esenciales para administración, compilación y
 sudo dnf install -y iputils telnet traceroute vim-enhanced lsof bash NetworkManager-tui gcc make kernel-devel kernel-headers openssh unzip zip tar lsscsi pciutils net-tools libnsl nscd chkconfig
 ```
 
-### Utilidades obligatorias para OpenText Data Protector (DP)
+**Utilidades obligatorias para OpenText Data Protector (DP)**
 
 Instalar los siguientes paquetes requeridos para ejecutar servicios de red como omni:
 
@@ -265,7 +266,7 @@ sudo dnf install -y xinetd bc && sudo systemctl enable --now xinetd && sudo syst
 
 - bc: calculadora en línea de comandos utilizada por scripts de instalación de DP.
 
-## 🔹 Paso 5: Creación del usuario hpdp
+## Paso 5: Creación del usuario hpdp
 
 El usuario hpdp es requerido por OpenText Data Protector para ejecutar servicios y procesos internos. A continuación, se crean el grupo y usuario necesarios con permisos apropiados.
 
@@ -303,7 +304,7 @@ Explicación de cada comando:
 
 > 📝 **Nota:** El usuario hpdp será usado únicamente por los servicios de Data Protector. No requiere acceso interactivo al sistema.
 
-## 🔹 Paso 6: Configuración de límites de archivos abiertos (Open File Limits)
+## Paso 6: Configuración de límites de archivos abiertos (Open File Limits)
 
 En el host Cell Manager, los procesos de OpenText Data Protector pueden requerir abrir numerosos archivos de manera simultánea. Por esta razón, es necesario aumentar el límite de archivos abiertos del sistema operativo a al menos 8192 por usuario en /etc/security/limits.conf
 
@@ -329,12 +330,14 @@ ulimit -a | grep open
 
 Ejemplo de salida correcta:
 
+```text
 open files (-n) 8192
+```
 
 Esto indica que el límite suave de archivos abiertos es 8192, tal como se configuró.\
 Si el valor aún no refleja lo configurado, asegúrate de cerrar y volver a iniciar sesión, o reiniciar el sistema si es necesario.
 
-## 🔹 Paso 7: Apertura de puertos requeridos en el firewall
+## Paso 7: Apertura de puertos requeridos en el firewall
 
 OpenText Data Protector necesita que los siguientes puertos TCP estén abiertos en el firewall del Cell Manager para permitir la comunicación entre agentes, clientes remotos y la consola GUI:
 
@@ -344,7 +347,7 @@ OpenText Data Protector necesita que los siguientes puertos TCP estén abiertos 
 
 - 7116/tcp: Necesario para la conexión desde el cliente GUI.
 
-### Comandos para abrir los puertos de forma permanente:
+**Comandos para abrir los puertos de forma permanente:**
 
 ```bash
 sudo firewall-cmd --permanent --add-port={5555/tcp,5565/tcp,7111/tcp,7112/tcp,7113/tcp,7115/tcp,7116/tcp,9999/tcp} && sudo firewall-cmd --reload
@@ -379,11 +382,11 @@ firewall-cmd --list-ports
 
 **Final del formulario**
 
-## 🔹 Paso 8: Instalación de OpenText Data Protector 24.4
+## Paso 8: Instalación de OpenText Data Protector 24.4
 
 Descomprimir e instalar los paquetes RPM de Data Protector en el host Cell Manager.
 
-### Crear directorio temporal
+**Crear directorio temporal**
 
 ```bash
 mkdir -p /tmp/DP244
@@ -391,7 +394,7 @@ mkdir -p /tmp/DP244
 
 Se crea un directorio de trabajo temporal donde se descomprimirá el contenido del paquete.
 
-### Descomprimir el paquete de instalación
+**Descomprimir el paquete de instalación**
 
 ```bash
 tar -xvzf /tmp/DP244/DP_244_GPLx86_64.tar.gz -C /tmp/DP244
@@ -399,7 +402,7 @@ tar -xvzf /tmp/DP244/DP_244_GPLx86_64.tar.gz -C /tmp/DP244
 
 Se extraen los archivos del instalador en el directorio creado.
 
-### Ingresar al directorio de instalación y verificar el instalador
+**Ingresar al directorio de instalación y verificar el instalador**
 
 ```bash
 cd /tmp/DP244/LOCAL_INSTALL && ls -l
@@ -407,19 +410,18 @@ cd /tmp/DP244/LOCAL_INSTALL && ls -l
 
 Asegúrate de que dentro del directorio se encuentre el archivo ejecutable omnisetup.sh, necesario para iniciar la instalación.
 
-### Ejecutar el instalador como Cell Manager
+**Ejecutar el instalador como Cell Manager**
 
 ```bash
 ./omnisetup.sh -CM -IS -inetport 5555 -accept_obsolescence -secure_data_comm 1 -auditlog 1
 ```
 
+```text
 I accept the terms in the license agreement [Y/N] : Y
-
 Enter Company Name[] :HOMELAB
-
 Enter Proxy Address[] :
-
 Are you sure you wish to skip proxy settings[Y/N] :Y
+```
 
 - El parámetro -CM indica que se instalará el rol de Cell Manager.
 
@@ -427,17 +429,17 @@ Are you sure you wish to skip proxy settings[Y/N] :Y
 
 - El parámetro -inetport 5555 especifica el puerto que usará el servicio omniinet (por defecto es 5565, pero aquí se define explícitamente el 5555).
 
-## 🔹 Paso 9: Modificación del archivo global
+## Paso 9: Modificación del archivo global
 
 Permitir que cualquier cliente GUI se conecte al **Cell Manager** sin restricciones por nombre de host, activando la opción EnableAnyOptionUserCtx.
 
-### Verificar si la opción ya existe
+**Verificar si la opción ya existe**
 
 ```bash
 grep EnableAnyOptionUserCtx /etc/opt/omni/server/options/global
 ```
 
-### Editar el archivo de configuración
+**Editar el archivo de configuración**
 
 Abre el archivo con el editor:
 
@@ -445,17 +447,19 @@ Abre el archivo con el editor:
 vi /etc/opt/omni/server/options/global
 ```
 
-### Agregar o modificar la línea de configuración
+**Agregar o modificar la línea de configuración**
 
 Dentro del archivo, asegúrate de que exista la siguiente línea y **no esté comentada**:
 
+```text
 EnableAnyOptionUserCtx=1
+```
 
-### Guardar los cambios
+**Guardar los cambios**
 
 Guarda el archivo y cierra el editor (vi → presiona ESC, escribe :wq, y pulsa Enter).
 
-## 🔹 Paso 10: Crear usuario administrador Windows en Data Protector
+## Paso 10: Crear usuario administrador Windows en Data Protector
 
 Crear un usuario de tipo Windows (-type W) que pueda conectarse desde cualquier cliente, grupo o nombre de usuario. Este usuario tendrá privilegios administrativos para la gestión desde interfaces gráficas remotas (GUI).
 
@@ -467,7 +471,9 @@ Crear un usuario de tipo Windows (-type W) que pueda conectarse desde cualquier 
 
 **Resultado esperado:**
 
+```text
 User '*' successfully added to 'admin' group.
+```
 
 **Advertencia de seguridad:**\
 El uso de comodines (*) para permitir acceso desde cualquier usuario, grupo o cliente desactiva mecanismos de seguridad, lo que **puede representar riesgos significativos** si no se acompaña de medidas adicionales de protección.
@@ -483,23 +489,20 @@ Utiliza esta configuración solo en entornos controlados o de laboratorio. Para 
 
 **Resultado esperado:**
 
+```text
 User Group: admin
-
 Name: *
-
 Group: *
-
 Client: *
-
 Web Username: *|*|*
-
 Descr: Administrador Windows
+```
 
-## 🔹 Paso 11: Validaciones finales de configuración
+## Paso 11: Validaciones finales de configuración
 
 Verificar que los servicios esenciales están activos, que el firewall permite la comunicación necesaria, y que el puerto principal de Data Protector (5555) está en escucha.
 
-### Verificar el estado del firewall
+**Verificar el estado del firewall**
 
 ```bash
 firewall-cmd --state
@@ -507,9 +510,11 @@ firewall-cmd --state
 
 Salida esperada:
 
+```text
 running
+```
 
-### Comprobar que los puertos requeridos están abiertos
+**Comprobar que los puertos requeridos están abiertos**
 
 ```bash
 firewall-cmd --list-ports
@@ -517,9 +522,11 @@ firewall-cmd --list-ports
 
 Verifica que estén listados los siguientes puertos:
 
+```text
 5555/tcp 5565/tcp 7111/tcp 7112/tcp 7113/tcp 7115/tcp 7116/tcp 9999/tcp
+```
 
-### Validar que Data Protector esté escuchando en el puerto 5555
+**Validar que Data Protector esté escuchando en el puerto 5555**
 
 ```bash
 netstat -tuln | grep :5555
@@ -527,16 +534,18 @@ netstat -tuln | grep :5555
 
 Salida esperada (ejemplo):
 
+```text
 tcp 0 0 0.0.0.0:5555 0.0.0.0:* LISTEN
+```
 
 **Recomendación:**\
 Si alguno de estos comandos no devuelve los resultados esperados, revisa los servicios de Data Protector (/opt/omni/sbin/omnisv status) o la configuración del firewall.
 
-## 🔹 Paso 12: Reiniciar servicios y validar estado del Cell Manager
+## Paso 12: Reiniciar servicios y validar estado del Cell Manager
 
 Hay que asegurar que todos los servicios esenciales de OpenText Data Protector estén activos y funcionando correctamente.
 
-### Verificar el estado de los servicios actuales:
+**Verificar el estado de los servicios actuales:**
 
 ```bash
 /opt/omni/sbin/omnisv status
@@ -544,35 +553,24 @@ Hay que asegurar que todos los servicios esenciales de OpenText Data Protector e
 
 **Ejemplo de salida:**
 
+```text
 ProcName Status [PID]
-
 ===============================
-
 crs : Active [22926]
-
 mmd : Active [22925]
-
 kms : Active [22864]
-
 hpdp-idb : Active [22959]
-
 hpdp-idb-cp : Active [22982]
-
 hpdp-as : Active [23428]
-
 hpdp-iam : Active [22995]
-
 hpdp-as-mq : Active
-
 omnitrig : Active
-
 Sending of traps disabled.
-
 ===============================
-
 Status: All Cell Server processes/services up and running.
+```
 
-### Reiniciar los servicios
+**Reiniciar los servicios**
 
 Si necesitas reiniciar los servicios, ejecuta:
 
@@ -590,11 +588,11 @@ Si necesitas reiniciar los servicios, ejecuta:
 
 - El mensaje final debe indicar: All Cell Server processes/services up and running.
 
-## 🔹 Paso 13: Configuración de Reglas de Firewall en Windows (GUI)
+## Paso 13: Configuración de Reglas de Firewall en Windows (GUI)
 
 Permitir conexiones entrantes al puerto TCP 7116, necesario para la comunicación entre el GUI y el servidor Cell Manager de Data Protector.
 
-### Crear una nueva regla de firewall en Windows
+**Crear una nueva regla de firewall en Windows**
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow TCP Port 7116" -Direction Inbound -Protocol TCP -LocalPort 7116 -Action Allow
@@ -616,7 +614,7 @@ New-NetFirewallRule -DisplayName "Allow TCP Port 7116" -Direction Inbound -Proto
 
 > > 📝 **Nota:** Este comando debe ejecutarse en PowerShell como Administrador.
 
-### Verificar que la regla fue creada correctamente
+**Verificar que la regla fue creada correctamente**
 
 ```powershell
 Get-NetFirewallRule -DisplayName "Allow TCP Port 7116"
@@ -630,7 +628,7 @@ Get-NetFirewallRule -DisplayName "Allow TCP Port 7116"
 
 Si la regla se creó correctamente, este comando debe mostrarla en la salida.
 
-## 🔹 Paso 14: Configuración de comunicación segura entre Cell Manager y GUI
+## Paso 14: Configuración de comunicación segura entre Cell Manager y GUI
 
 Data Protector usa "secure communication" entre sus componentes. Esta comunicación debe ser configurada y autorizada entre los pares involucrados (servidor y GUI).
 
@@ -682,7 +680,7 @@ Después de ejecutar estos pasos:
 
 - La conexión GUI → Cell Manager debería funcionar correctamente.
 
-## 🔹 Paso 15: Tunning DPIDB
+## Paso 15: Tunning DPIDB
 
 **Warning de IDB Backup (AES)**
 
@@ -692,19 +690,19 @@ Alternately, use the omnirc variable OB2_DISABLE_IDB_BKP_ENCRYPTION_WARNING
 
 **Solución:** deshabilitar el warning vía .omnirc
 
-### Verificar si existe el archivo .omnirc:
+**Verificar si existe el archivo .omnirc:**
 
 ```bash
 ls -l /opt/omni/.omnirc
 ```
 
-### Si no existe, crear el archivo y añadir la variable:
+**Si no existe, crear el archivo y añadir la variable:**
 
 ```bash
 echo "OB2_DISABLE_IDB_BKP_ENCRYPTION_WARNING=1" >> /opt/omni/.omnirc
 ```
 
-### Verificar que la variable quedó correcta:
+**Verificar que la variable quedó correcta:**
 
 ```bash
 grep OB2_DISABLE_IDB_BKP_ENCRYPTION_WARNING /opt/omni/.omnirc
@@ -712,7 +710,9 @@ grep OB2_DISABLE_IDB_BKP_ENCRYPTION_WARNING /opt/omni/.omnirc
 
 **Salida esperada:**
 
-\# OB2_DISABLE_IDB_BKP_ENCRYPTION_WARNING=1
+```text
+# OB2_DISABLE_IDB_BKP_ENCRYPTION_WARNING=1
+```
 
 **Warning de Recovery Index (RecoveryIndexDir)**
 
@@ -722,7 +722,7 @@ Alternatively, use the global variable DisableOBRIndexWarning
 
 **Solución:** crear directorio o usar la variable.
 
-### Crear directorio para el Recovery Index:
+**Crear directorio para el Recovery Index:**
 
 ```bash
 mkdir -p /DP_OBRINDEX_COPY
@@ -734,15 +734,17 @@ mkdir -p /DP_OBRINDEX_COPY
 vi /etc/opt/omni/server/options/global
 ```
 
-### Dentro del archivo, añadir o modificar:
+**Dentro del archivo, añadir o modificar:**
 
+```text
 RecoveryIndexDir=/DP_OBRINDEX_COPY
+```
 
-### Guardar y salir
+**Guardar y salir**
 
 (:wq si usas vi).
 
-### Verificar:
+**Verificar:**
 
 ```bash
 grep RecoveryIndexDir /etc/opt/omni/server/options/global
@@ -750,8 +752,12 @@ grep RecoveryIndexDir /etc/opt/omni/server/options/global
 
 **Salida esperada:**
 
-\# RecoveryIndexDir=/DP_OBRINDEX_COPY
+```text
+# RecoveryIndexDir=/DP_OBRINDEX_COPY
+```
 
 **–** Si quieres simplemente ignorar el warning del Recovery Index sin crear el directorio, puedes añadir en global:
 
+```text
 DisableOBRIndexWarning=1
+```
