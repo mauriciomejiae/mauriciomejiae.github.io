@@ -48,13 +48,14 @@ const config: Config = {
     },
     image: 'img/og-banner.png',
     metadata: [
-      {name: 'description', content: 'Manuales técnicos de infraestructura: Linux, Proxmox, Oracle Database y soluciones de Backup.'},
-      {name: 'keywords', content: 'manuales técnicos, RHEL, Proxmox, Oracle, Data Protector, Linux, DevOps'},
+      {name: 'description', content: 'Mauricio Labs — Documentación técnica especializada en infraestructura crítica, automatización y soluciones de backup corporativo.'},
+      {name: 'keywords', content: 'RHEL, Proxmox, Oracle Database, Data Protector, Linux Hardening, iSCSI, LVM, RMAN'},
+      {name: 'twitter:card', content: 'summary_large_image'},
     ],
     navbar: {
       title: 'Mauricio Labs',
       logo: {
-        alt: 'Logo Mauricio Labs',
+        alt: 'Mauricio Labs Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -86,8 +87,9 @@ const config: Config = {
         },
         {
           href: 'https://github.com/mauriciomejiae/mauriciomejiae.github.io',
-          label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
@@ -95,29 +97,28 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Categorías',
+          title: 'Manuales',
           items: [
-            {label: 'Proxmox', to: '/docs/proxmox/post-install-proxmox9'},
-            {label: 'Linux', to: '/docs/linux/disclaimer-login-linux'},
-            {label: 'Oracle', to: '/docs/oracle/instalacion-oracle19c'},
-            {label: 'Backup', to: '/docs/backup/data-protector-244-rhel85'},
+            {label: 'Proxmox VE', to: '/docs/proxmox/post-install-proxmox9'},
+            {label: 'Red Hat Enterprise Linux', to: '/docs/linux/disclaimer-login-linux'},
+            {label: 'Oracle Database', to: '/docs/oracle/instalacion-oracle19c'},
+            {label: 'Data Protector', to: '/docs/backup/data-protector-244-rhel85'},
           ],
         },
         {
-          title: 'Recursos',
+          title: 'Comunidad',
           items: [
-            {label: 'Red Hat RHEL', href: 'https://access.redhat.com/documentation'},
-            {label: 'Proxmox VE', href: 'https://pve.proxmox.com/wiki/Main_Page'},
-            {label: 'Oracle Docs', href: 'https://docs.oracle.com/en/database/oracle/oracle-database/'},
+            {label: 'GitHub', href: 'https://github.com/mauriciomejiae'},
+            {label: 'LinkedIn', href: 'https://linkedin.com/in/mauriciomejiae'},
           ],
         },
       ],
-      copyright: `© ${new Date().getFullYear()} Mauricio Labs. Construido con Docusaurus.`,
+      copyright: `© ${new Date().getFullYear()} Mauricio Labs. Diseñado para la excelencia técnica.`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'powershell', 'sql', 'ini', 'properties'],
+      theme: prismThemes.vsLight,
+      darkTheme: prismThemes.vsDark,
+      additionalLanguages: ['bash', 'powershell', 'sql', 'ini', 'properties', 'yaml', 'json'],
     },
     docs: {
       sidebar: {
