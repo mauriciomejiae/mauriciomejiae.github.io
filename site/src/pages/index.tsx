@@ -12,7 +12,7 @@ export default function Home(): React.JSX.Element {
       description="Technical Documentation Portal">
       
       <main>
-        {/* Antigravity Hero */}
+        {/* Premium Hero Section */}
         <section className="hero-section">
           <div className="container text--center">
             <h1 className="hero-title">
@@ -24,24 +24,24 @@ export default function Home(): React.JSX.Element {
             </p>
             <div className="hero-actions">
               <Link
-                className="btn-primary"
+                className="button btn-primary"
                 to="/docs/backup/data-protector-244-rhel85">
-                Ver Manuales
+                Explorar Manuales
               </Link>
               <Link
-                className="btn-secondary"
+                className="button btn-secondary"
                 to="https://github.com/mauriciomejiae"
-                style={{marginLeft: '1rem'}}>
-                GitHub
+                style={{marginLeft: '16px'}}>
+                GitHub Repo
               </Link>
             </div>
           </div>
         </section>
 
-        {/* Document List (Pure Minimalist) */}
+        {/* Simplified Document Explorer (No Categories) */}
         <section className="recent-section">
           <div className="container">
-            <h2 className="section-title">Manuales Técnicos</h2>
+            <h2 style={{fontSize: '2rem', marginBottom: '2rem', fontWeight: 800}}>Repositorio de Manuales</h2>
             
             <div className="doc-list">
               {[
@@ -50,16 +50,14 @@ export default function Home(): React.JSX.Element {
                 { tag: 'linux', label: 'LINUX', title: 'Disclaimer / Banner de Login Linux', link: '/docs/linux/disclaimer-login-linux' },
                 { tag: 'oracle', label: 'ORACLE', title: 'Instalación Oracle 19c en OL7', link: '/docs/oracle/instalacion-oracle19c' },
                 { tag: 'linux', label: 'LINUX', title: 'Instalación QUADStor VTL en RHEL 9', link: '/docs/linux/quadstor-vtl-rhel9' },
-                { tag: 'oracle', label: 'ORACLE', title: 'Restore Oracle 19c con DP', link: '/docs/oracle/restore-oracle19c' },
-                { tag: 'proxmox', label: 'PROXMOX', title: 'Ampliar disco RHEL con LVM', link: '/docs/proxmox/ampliar-disco-rhel-lvm' },
               ].map((doc, i) => (
                 <Link key={i} to={doc.link} className="doc-item" style={{display: 'block', textDecoration: 'none'}}>
                   <div className="row align-items-center">
-                    <div className="col col--8">
-                      <h3 className="doc-item-title">{doc.title}</h3>
+                    <div className="col col--9">
+                      <h3 style={{margin: 0, fontSize: '1.2rem'}}>{doc.title}</h3>
                     </div>
-                    <div className="col col--4 text--right">
-                      <span className={`badge tag-${doc.tag}`}>{doc.label}</span>
+                    <div className="col col--3 text--right">
+                      <span className={`badge badge--primary`}>{doc.label}</span>
                     </div>
                   </div>
                 </Link>
