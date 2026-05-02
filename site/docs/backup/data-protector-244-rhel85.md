@@ -9,10 +9,6 @@ toc_max_heading_level: 2
 
 # Manual – Instalación Cell Manager Data Protector 24.4 en RHEL 8.5
 
-![Status](https://img.shields.io/badge/Status-Migrado-success?style=flat-square)
-![Type](https://img.shields.io/badge/Type-Manual_Técnico-blue?style=flat-square)
-![Last Updated](https://img.shields.io/badge/Date-2026-lightgrey?style=flat-square)
-
 ---
 
 ## Paso 1: Configurar IP estática y desactivar IPv6 (cambios permanentes)

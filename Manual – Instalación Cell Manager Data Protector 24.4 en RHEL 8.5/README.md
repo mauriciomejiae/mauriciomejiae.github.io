@@ -1,7 +1,5 @@
 # Manual – Instalación Cell Manager Data Protector 24.4 en RHEL 8.5
 
----
-
 ## Paso 1: Configurar IP estática y desactivar IPv6 (cambios permanentes)
 
 **– Identificar la interfaz de red activa**

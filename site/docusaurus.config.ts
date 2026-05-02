@@ -63,27 +63,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'manualsSidebar',
           position: 'left',
-          label: 'Documentación',
-        },
-        {
-          label: 'Proxmox',
-          to: '/docs/proxmox/post-install-proxmox9',
-          position: 'left',
-        },
-        {
-          label: 'Linux',
-          to: '/docs/linux/disclaimer-login-linux',
-          position: 'left',
-        },
-        {
-          label: 'Oracle',
-          to: '/docs/oracle/instalacion-oracle19c',
-          position: 'left',
-        },
-        {
-          label: 'Backup',
-          to: '/docs/backup/data-protector-244-rhel85',
-          position: 'left',
+          label: 'Manuales',
         },
         {
           href: 'https://github.com/mauriciomejiae/mauriciomejiae.github.io',
