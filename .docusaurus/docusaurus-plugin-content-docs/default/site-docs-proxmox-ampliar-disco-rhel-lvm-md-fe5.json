@@ -1,0 +1,51 @@
+{
+  "id": "proxmox/ampliar-disco-rhel-lvm",
+  "title": "Ampliar disco RHEL 8.5 con LVM",
+  "description": "Guía para ampliar un disco en RHEL 8.5 de 30 GB a 50 GB en Proxmox con LVM, usando growpart y lvextend.",
+  "source": "@site/docs/proxmox/ampliar-disco-rhel-lvm.md",
+  "sourceDirName": "proxmox",
+  "slug": "/proxmox/ampliar-disco-rhel-lvm",
+  "permalink": "/docs/proxmox/ampliar-disco-rhel-lvm",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "proxmox",
+      "permalink": "/docs/tags/proxmox"
+    },
+    {
+      "inline": true,
+      "label": "rhel",
+      "permalink": "/docs/tags/rhel"
+    },
+    {
+      "inline": true,
+      "label": "lvm",
+      "permalink": "/docs/tags/lvm"
+    },
+    {
+      "inline": true,
+      "label": "disco",
+      "permalink": "/docs/tags/disco"
+    }
+  ],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "title": "Ampliar disco RHEL 8.5 con LVM",
+    "description": "Guía para ampliar un disco en RHEL 8.5 de 30 GB a 50 GB en Proxmox con LVM, usando growpart y lvextend.",
+    "tags": [
+      "proxmox",
+      "rhel",
+      "lvm",
+      "disco"
+    ]
+  },
+  "sidebar": "manualsSidebar",
+  "previous": {
+    "title": "Restore Oracle 19c con Data Protector",
+    "permalink": "/docs/oracle/restore-oracle19c"
+  }
+}

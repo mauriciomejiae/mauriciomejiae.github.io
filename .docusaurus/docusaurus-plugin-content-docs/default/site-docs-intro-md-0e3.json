@@ -1,0 +1,24 @@
+{
+  "id": "intro",
+  "title": "Bienvenido",
+  "description": "Portal de manuales técnicos de infraestructura Linux, Proxmox, Oracle y Backup.",
+  "source": "@site/docs/intro.md",
+  "sourceDirName": ".",
+  "slug": "/intro",
+  "permalink": "/docs/intro",
+  "draft": false,
+  "unlisted": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Bienvenido",
+    "description": "Portal de manuales técnicos de infraestructura Linux, Proxmox, Oracle y Backup."
+  },
+  "sidebar": "manualsSidebar",
+  "next": {
+    "title": "Instalación Cell Manager Data Protector 24.4",
+    "permalink": "/docs/backup/data-protector-244-rhel85"
+  }
+}

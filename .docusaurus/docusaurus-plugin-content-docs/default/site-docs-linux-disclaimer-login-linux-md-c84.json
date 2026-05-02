@@ -1,0 +1,61 @@
+{
+  "id": "linux/disclaimer-login-linux",
+  "title": "Disclaimer / Banner de Login Linux",
+  "description": "Configuración de un banner profesional de login en RHEL 8.5 con información del sistema y advertencia de uso autorizado mediante /etc/profile.d/banner.sh.",
+  "source": "@site/docs/linux/disclaimer-login-linux.md",
+  "sourceDirName": "linux",
+  "slug": "/linux/disclaimer-login-linux",
+  "permalink": "/docs/linux/disclaimer-login-linux",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "linux",
+      "permalink": "/docs/tags/linux"
+    },
+    {
+      "inline": true,
+      "label": "rhel",
+      "permalink": "/docs/tags/rhel"
+    },
+    {
+      "inline": true,
+      "label": "seguridad",
+      "permalink": "/docs/tags/seguridad"
+    },
+    {
+      "inline": true,
+      "label": "banner",
+      "permalink": "/docs/tags/banner"
+    },
+    {
+      "inline": true,
+      "label": "ssh",
+      "permalink": "/docs/tags/ssh"
+    }
+  ],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Disclaimer / Banner de Login Linux",
+    "description": "Configuración de un banner profesional de login en RHEL 8.5 con información del sistema y advertencia de uso autorizado mediante /etc/profile.d/banner.sh.",
+    "tags": [
+      "linux",
+      "rhel",
+      "seguridad",
+      "banner",
+      "ssh"
+    ]
+  },
+  "sidebar": "manualsSidebar",
+  "previous": {
+    "title": "Post-Install Proxmox 9 – Standalone",
+    "permalink": "/docs/proxmox/post-install-proxmox9"
+  },
+  "next": {
+    "title": "Instalación Oracle 19c en Oracle Linux 7",
+    "permalink": "/docs/oracle/instalacion-oracle19c"
+  }
+}

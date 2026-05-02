@@ -1,0 +1,67 @@
+{
+  "id": "linux/quadstor-vtl-rhel9",
+  "title": "Instalación QUADStor VTL en RHEL 9.0",
+  "description": "Guía completa de instalación y configuración de QUADStor Virtual Tape Library en RHEL 9.0, incluyendo conexión iSCSI desde Windows y Linux.",
+  "source": "@site/docs/linux/quadstor-vtl-rhel9.md",
+  "sourceDirName": "linux",
+  "slug": "/linux/quadstor-vtl-rhel9",
+  "permalink": "/docs/linux/quadstor-vtl-rhel9",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "linux",
+      "permalink": "/docs/tags/linux"
+    },
+    {
+      "inline": true,
+      "label": "rhel",
+      "permalink": "/docs/tags/rhel"
+    },
+    {
+      "inline": true,
+      "label": "quadstor",
+      "permalink": "/docs/tags/quadstor"
+    },
+    {
+      "inline": true,
+      "label": "vtl",
+      "permalink": "/docs/tags/vtl"
+    },
+    {
+      "inline": true,
+      "label": "iscsi",
+      "permalink": "/docs/tags/iscsi"
+    },
+    {
+      "inline": true,
+      "label": "backup",
+      "permalink": "/docs/tags/backup"
+    }
+  ],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "title": "Instalación QUADStor VTL en RHEL 9.0",
+    "description": "Guía completa de instalación y configuración de QUADStor Virtual Tape Library en RHEL 9.0, incluyendo conexión iSCSI desde Windows y Linux.",
+    "tags": [
+      "linux",
+      "rhel",
+      "quadstor",
+      "vtl",
+      "iscsi",
+      "backup"
+    ]
+  },
+  "sidebar": "manualsSidebar",
+  "previous": {
+    "title": "Instalación Oracle 19c en Oracle Linux 7",
+    "permalink": "/docs/oracle/instalacion-oracle19c"
+  },
+  "next": {
+    "title": "Restore Oracle 19c con Data Protector",
+    "permalink": "/docs/oracle/restore-oracle19c"
+  }
+}
