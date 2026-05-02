@@ -1,0 +1,67 @@
+{
+  "id": "oracle/instalacion-oracle19c",
+  "title": "Instalación Oracle 19c en Oracle Linux 7",
+  "description": "Guía completa de instalación de Oracle Database 19c en Oracle Linux 7.9, incluyendo configuración de red, usuario Oracle, DBCA, ARCHIVELOG y conexión SQL*Plus.",
+  "source": "@site/docs/oracle/instalacion-oracle19c.md",
+  "sourceDirName": "oracle",
+  "slug": "/oracle/instalacion-oracle19c",
+  "permalink": "/docs/oracle/instalacion-oracle19c",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "oracle",
+      "permalink": "/docs/tags/oracle"
+    },
+    {
+      "inline": true,
+      "label": "oracle-linux",
+      "permalink": "/docs/tags/oracle-linux"
+    },
+    {
+      "inline": true,
+      "label": "rhel",
+      "permalink": "/docs/tags/rhel"
+    },
+    {
+      "inline": true,
+      "label": "base-de-datos",
+      "permalink": "/docs/tags/base-de-datos"
+    },
+    {
+      "inline": true,
+      "label": "dbca",
+      "permalink": "/docs/tags/dbca"
+    },
+    {
+      "inline": true,
+      "label": "rman",
+      "permalink": "/docs/tags/rman"
+    }
+  ],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "title": "Instalación Oracle 19c en Oracle Linux 7",
+    "description": "Guía completa de instalación de Oracle Database 19c en Oracle Linux 7.9, incluyendo configuración de red, usuario Oracle, DBCA, ARCHIVELOG y conexión SQL*Plus.",
+    "tags": [
+      "oracle",
+      "oracle-linux",
+      "rhel",
+      "base-de-datos",
+      "dbca",
+      "rman"
+    ]
+  },
+  "sidebar": "manualsSidebar",
+  "previous": {
+    "title": "Manual – Configuración Banner Profesional de Bienvenida – Linux",
+    "permalink": "/docs/linux/configuracion-banner-linux"
+  },
+  "next": {
+    "title": "Instalación QUADStor VTL en RHEL 9.0",
+    "permalink": "/docs/linux/quadstor-vtl-rhel9"
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "/__docusaurus/debug-5ff": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/config-5ba": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/content-a2b": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    },
+    "__props": "__props---docusaurus-debug-content-3-c-0-be2"
+  },
+  "/__docusaurus/debug/globalData-c3c": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/metadata-156": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/registry-88c": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/routes-000": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/docs-954": {
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__context": {
+      "plugin": "plugin---docsaba-d7c"
+    }
+  },
+  "/docs-945": {
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "__props": "__props---docs-005-788"
+  },
+  "/docs/tags-fce": {
+    "__comp": "__comp---theme-doc-tags-list-page-372-89e",
+    "__props": "__props---docs-tags-898-65c"
+  },
+  "/docs/tags/apt-6d4": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-aptb-58-1a8"
+  },
+  "/docs/tags/backup-609": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-backupf-04-7ce"
+  },
+  "/docs/tags/banner-549": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-banneree-2-ea7"
+  },
+  "/docs/tags/base-de-datos-ca3": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-base-de-datos-627-e4f"
+  },
+  "/docs/tags/cell-manager-aac": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-cell-managerb-23-6c3"
+  },
+  "/docs/tags/data-protector-014": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-data-protector-5-bb-45e"
+  },
+  "/docs/tags/dbca-e14": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-dbca-75-d-713"
+  },
+  "/docs/tags/debian-dd4": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-debian-22-e-555"
+  },
+  "/docs/tags/disco-eb4": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-disco-895-dcf"
+  },
+  "/docs/tags/iscsi-5c4": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-iscsi-99-c-fc4"
+  },
+  "/docs/tags/linux-845": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-linuxda-8-abb"
+  },
+  "/docs/tags/lvm-f01": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-lvm-106-6d0"
+  },
+  "/docs/tags/opentext-330": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-opentext-050-f43"
+  },
+  "/docs/tags/oracle-e72": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-oracle-822-215"
+  },
+  "/docs/tags/oracle-linux-688": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-oracle-linux-89-e-626"
+  },
+  "/docs/tags/pitr-c72": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-pitrab-6-a39"
+  },
+  "/docs/tags/proxmox-97a": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-proxmox-0-ad-429"
+  },
+  "/docs/tags/quadstor-3e0": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-quadstorfc-0-c74"
+  },
+  "/docs/tags/restore-1d7": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-restore-2-cc-c4f"
+  },
+  "/docs/tags/rhel-2aa": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-rhela-6-c-cd0"
+  },
+  "/docs/tags/rman-ce1": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-rman-3-d-2-02c"
+  },
+  "/docs/tags/seguridad-8b8": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-seguridad-05-b-332"
+  },
+  "/docs/tags/ssh-a78": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-ssh-7-c-5-d19"
+  },
+  "/docs/tags/standalone-8d8": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-standalone-752-967"
+  },
+  "/docs/tags/vtl-f7c": {
+    "__comp": "__comp---theme-doc-tag-doc-list-pagedf-2-9f0",
+    "__props": "__props---docs-tags-vtl-2-ab-7d5"
+  },
+  "/docs-59b": {
+    "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/docs/backup/data-protector-244-rhel85-b76": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-backup-data-protector-244-rhel-850-b-1-2dc"
+  },
+  "/docs/intro-f32": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-intro-0-e-3-be1"
+  },
+  "/docs/linux/configuracion-banner-linux-255": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-linux-configuracion-banner-linuxaba-5c5"
+  },
+  "/docs/linux/quadstor-vtl-rhel9-6a8": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-linux-quadstor-vtl-rhel-9-e-52-a25"
+  },
+  "/docs/oracle/instalacion-oracle19c-ea5": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-oracle-instalacion-oracle-19-c-90-b-540"
+  },
+  "/docs/oracle/restore-oracle19c-045": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-oracle-restore-oracle-19-c-36-e-b5d"
+  },
+  "/docs/proxmox/ampliar-disco-rhel-lvm-ea4": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-proxmox-ampliar-disco-rhel-lvmfe-5-e38"
+  },
+  "/docs/proxmox/post-install-proxmox9-3b3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-proxmox-post-install-proxmox-9-f-63-56a"
+  },
+  "/-e5f": {
+    "__comp": "__comp---site-src-pages-index-tsx-1-df-d3e",
+    "__context": {
+      "plugin": "plugin---a-74-9d6"
+    },
+    "config": "config---5-e-9-4f3"
+  }
+}

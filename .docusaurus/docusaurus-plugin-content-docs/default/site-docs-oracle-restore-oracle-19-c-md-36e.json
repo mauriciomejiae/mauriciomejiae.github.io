@@ -1,0 +1,67 @@
+{
+  "id": "oracle/restore-oracle19c",
+  "title": "Restore Oracle 19c con Data Protector",
+  "description": "Restauración completa de Oracle 19c desde Data Protector usando RMAN y Point In Time Recovery en Oracle Linux 7.",
+  "source": "@site/docs/oracle/restore-oracle19c.md",
+  "sourceDirName": "oracle",
+  "slug": "/oracle/restore-oracle19c",
+  "permalink": "/docs/oracle/restore-oracle19c",
+  "draft": false,
+  "unlisted": false,
+  "tags": [
+    {
+      "inline": true,
+      "label": "oracle",
+      "permalink": "/docs/tags/oracle"
+    },
+    {
+      "inline": true,
+      "label": "rman",
+      "permalink": "/docs/tags/rman"
+    },
+    {
+      "inline": true,
+      "label": "restore",
+      "permalink": "/docs/tags/restore"
+    },
+    {
+      "inline": true,
+      "label": "data-protector",
+      "permalink": "/docs/tags/data-protector"
+    },
+    {
+      "inline": true,
+      "label": "backup",
+      "permalink": "/docs/tags/backup"
+    },
+    {
+      "inline": true,
+      "label": "pitr",
+      "permalink": "/docs/tags/pitr"
+    }
+  ],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2,
+    "title": "Restore Oracle 19c con Data Protector",
+    "description": "Restauración completa de Oracle 19c desde Data Protector usando RMAN y Point In Time Recovery en Oracle Linux 7.",
+    "tags": [
+      "oracle",
+      "rman",
+      "restore",
+      "data-protector",
+      "backup",
+      "pitr"
+    ]
+  },
+  "sidebar": "manualsSidebar",
+  "previous": {
+    "title": "Instalación QUADStor VTL en RHEL 9.0",
+    "permalink": "/docs/linux/quadstor-vtl-rhel9"
+  },
+  "next": {
+    "title": "Ampliar disco RHEL 8.5 con LVM",
+    "permalink": "/docs/proxmox/ampliar-disco-rhel-lvm"
+  }
+}

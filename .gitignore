@@ -1,0 +1,29 @@
+# Dependencias
+node_modules/
+
+# Build output
+build/
+.docusaurus/
+.cache-loader/
+
+# Archivos originales Word (no se publican)
+**/*.docx
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+build.log
+build_output.log
+
+# Inteligencia de Proyecto (Antigravity Skills)
+.skills/
